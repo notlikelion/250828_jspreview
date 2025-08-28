@@ -43,7 +43,8 @@ public class MainController {
                 .build();
         GenerateContentResponse response = client.models.generateContent(
 //                "gemini-2.5-flash-lite", question, null);
-                "gemini-2.5-flash-lite", form.question(), null);
+//                "gemini-2.5-flash-lite", form.question(), null);
+                form.model(), form.question(), null);
         model.addAttribute("text", response.text());
         return "index"; // 경로는 같은데 전달된 데이터가 다른 jsp
         }

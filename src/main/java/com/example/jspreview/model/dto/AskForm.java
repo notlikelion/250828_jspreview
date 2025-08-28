@@ -1,4 +1,4 @@
 package com.example.jspreview.model.dto;
 
-public record AskForm(String question) {
+public record AskForm(String question, String model) {
 }
