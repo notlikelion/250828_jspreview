@@ -35,3 +35,9 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### dev
+# application-dev.properties
+# -> application-dev.yml
+# 중간에 -dev. 파일은 모두 git에서 제외
+*-dev.*
