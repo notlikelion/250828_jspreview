@@ -5,5 +5,8 @@
 </head>
 <body>
     <h1>반가워요!</h1>
+    <p>
+        <%= request.getAttribute("text") %>
+    </p>
 </body>
 </html>
