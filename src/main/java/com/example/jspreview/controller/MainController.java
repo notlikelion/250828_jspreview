@@ -1,11 +1,13 @@
 package com.example.jspreview.controller;
 
+import com.example.jspreview.model.dto.AskForm;
 import com.google.genai.Client;
 import com.google.genai.types.GenerateContentResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -34,12 +36,14 @@ public class MainController {
 //    @PostMapping("/")
     @PostMapping
     public String index(Model model,
-                        @RequestParam("question") String question) {
+//                        @RequestParam("question") String question) {
+                        @ModelAttribute AskForm form) {
         Client client = Client.builder()
                 .apiKey(apiKey)
                 .build();
         GenerateContentResponse response = client.models.generateContent(
-                "gemini-2.5-flash-lite", question, null);
+//                "gemini-2.5-flash-lite", question, null);
+                "gemini-2.5-flash-lite", form.question(), null);
         model.addAttribute("text", response.text());
         return "index"; // 경로는 같은데 전달된 데이터가 다른 jsp
         }
